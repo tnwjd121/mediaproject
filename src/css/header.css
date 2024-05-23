@@ -1,0 +1,15 @@
+.header{
+  margin: 0;
+  background-color: rgb(165, 165, 255);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: white;
+}
+.logo{
+  font-weight: 800;
+  font-size: 1.8rem;
+}
+.header-right{
+  
+}

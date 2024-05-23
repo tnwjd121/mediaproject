@@ -1,0 +1,44 @@
+.main-container {
+  display: flex;
+  flex-direction: column;
+  padding: 30px 250px;
+}
+
+.main-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.filter {
+  display: flex;
+  justify-content: right;
+  gap: 10px;
+}
+
+.main-list ul {
+  padding: 0;
+}
+
+.main-list li {
+  list-style: none;
+}
+.list-item {
+  display: flex;
+  justify-content: space-between;
+  
+}
+.list-left {
+  display: flex;
+  gap: 10px;
+}
+
+.list-right {
+  display: flex;
+  gap: 10px;
+}
+
+.button {
+  display: flex;
+  justify-content: center;
+}
