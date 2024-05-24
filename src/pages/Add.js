@@ -55,7 +55,7 @@ export default function Add() {
 
   return (
     <div id='add'>
-      <h1>프로그램 등록</h1>
+      <h1 id='add-title'>프로그램 등록</h1>
       <label>
         <span>제목</span>
         <input id='title' type='text' value={formData.title} onChange={handleChange}/>

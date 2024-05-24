@@ -1,0 +1,60 @@
+#body{
+  background-color: white;
+  margin: 20px auto;
+  width: 55rem;
+  border-radius: 20px;
+  border: 1px solid rgb(126, 167, 255);
+  padding: 20px;
+}
+
+#list-body{
+  width: 50rem;
+  margin: 0 auto;
+}
+
+#list-title{
+  color: rgb(126, 167, 255);
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+#list-table {
+  width: 40rem;
+  text-align: center;
+  margin: 10px auto;
+}
+#list-title-media{
+  width: 16rem;
+}
+#list-pd{
+  width: 5rem;
+}
+#list-content{
+  width: 5rem;
+}
+#list-genre{
+  width: 9rem;
+}
+#list-rating{
+  width: 5rem;
+}
+
+#list-table th{
+  background-color:  rgb(126, 167, 255);
+  color: white;
+}
+
+#list-table, #list-table tr, #list-table td, #list-table th{
+  border-collapse: collapse;
+}
+
+#list-table td, #list-table th{
+  padding: 5px;
+}
+
+#list-table tr:nth-child(2n+1){
+  background-color: rgb(212, 212, 212);
+}
+#list-table tr:nth-child(2n){
+  background-color: rgb(241, 241, 241);
+}

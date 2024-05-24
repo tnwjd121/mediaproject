@@ -5,6 +5,9 @@
   margin: 0;
   font-family: 'Noto Sans KR', sans-serif;
 }
+body{
+  background-color: rgb(243, 246, 252);
+}
 
 #nav{
   background-color: rgb(167, 167, 167);
