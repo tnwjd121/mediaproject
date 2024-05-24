@@ -1,0 +1,49 @@
+#add{
+  background-color:  rgb(168, 194, 252);
+  display: flex;
+  flex-direction: column;
+  width: 35rem;
+  text-align: center;
+  margin: 5rem auto 0px;
+  padding: 20px 30px;
+  border-radius: 20px;
+}
+h1{ 
+  color: white;
+  margin-bottom: 10px;
+}
+#add label{
+  margin: 5px;
+}
+#add input, #genre, #content{
+  border: 1px solid rgb(94, 143, 247);
+  width: 13rem;
+  height: 1.5rem;
+  float: left;
+}
+
+textarea{
+  border: 1px solid rgb(94, 143, 247);
+  float: left;
+}
+
+#add span{
+  float: left;
+  color: white;
+  width: 5rem;
+}
+
+#add-button{
+  margin: 0 auto;
+  margin-top: 20px;
+  width: 19rem;
+  height: 2.5rem;
+  background-color:  rgb(126, 167, 255);
+  color: white;
+  border-radius: 10px;
+  font-size: medium;
+}
+
+#add-button:active{
+  background-color: rgb(161, 161, 161);
+}

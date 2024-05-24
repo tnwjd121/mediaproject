@@ -8,7 +8,7 @@ export default function Header() {
 
   return (
     <>
-      <div className='header'>
+      <header className='header'>
         <div className='header-left'>
           <div className='logo' onClick={() => navigate('/')}>MEDIA</div>
         </div>
@@ -16,7 +16,7 @@ export default function Header() {
           <div onClick={() => navigate('/Login')}>로그인</div>
           <div onClick={() => navigate('/Join')}>회원가입</div>
         </div>
-      </div>
+      </header>
     </>
   )
 }
