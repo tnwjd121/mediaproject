@@ -8,11 +8,11 @@ import Add from './pages/Add';
 import List from './pages/List';
 import Rainking from './pages/Ranking';
 import Random from './pages/Random';
-import Searchtitle from './pages/Searchtitle';
-import Searchgenre from './pages/SearchGanre';
+import Search from './pages/Search';
 import Writer from './pages/Writer';
 import Login from './pages/Login';
 import Join from './pages/Join';
+import Detail from './pages/Detail';
 
 
 function App() {
@@ -26,8 +26,7 @@ function App() {
             <li><Link to='/List'>프로그램 목록</Link></li>
             <li><Link to='/Rainking'>랭킹</Link></li>
             <li><Link to='/Random'>랜덤 추천</Link></li>
-            <li><Link to='/Searchtitle'>제목 검색</Link></li>
-            <li><Link to='/Searchgenre'>장르 검색</Link></li>
+            <li><Link to='/Search'>검색</Link></li>
             <li><Link to='/Writer'>감독 정보</Link></li>
           </ul>
         </nav>
@@ -37,11 +36,11 @@ function App() {
           <Route path='/List' element={<List />} /> 
           <Route path='/Rainking' element={<Rainking />} /> 
           <Route path='/Random' element={<Random />} /> 
-          <Route path='/Searchtitle' element={<Searchtitle />} /> 
-          <Route path='/Searchgenre' element={<Searchgenre />} /> 
+          <Route path='/Search' element={<Search />} /> 
           <Route path='/Writer' element={<Writer />} /> 
           <Route path='/Login' element={<Login />} /> 
           <Route path='/Join' element={<Join />} /> 
+          <Route path='/Detail/:id' element={<Detail />} /> 
         </Routes>
         <Footer/>
       </>

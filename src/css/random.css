@@ -8,73 +8,68 @@
   padding: 20px;
 }
 
-#list-body{
+#random-body{
   width: 50rem;
   margin: 0 auto;
+  text-align: center;
 }
 
-#list-title{
+#random-title{
   color: rgb(126, 167, 255);
   text-align: center;
   margin-bottom: 10px;
 }
 
-#list-table {
+#random-table {
   width: 40rem;
   text-align: center;
   margin: 10px auto;
 }
-#list-title-media{
+#random-title-media{
   width: 16rem;
 }
-#list-pd{
+#random-pd{
   width: 5rem;
 }
-#list-content{
+#random-content{
   width: 5rem;
 }
-#list-genre{
+#random-genre{
   width: 9rem;
 }
-#list-rating{
+#random-rating{
   width: 5rem;
 }
 
-#list-table th{
+#random-table th{
   background-color:  rgb(126, 167, 255);
   color: white;
 }
 
-#list-table, #list-table tr, #list-table td, #list-table th{
+#random-table, #random-table tr, #random-table td, #random-table th{
   border-collapse: collapse;
 }
 
-#list-table td, #list-table th{
+#random-table td, #random-table th{
   padding: 5px;
 }
 
-#list-table tr:nth-child(2n+1){
+#random-table tr:nth-child(2n+1){
   background-color: rgb(212, 212, 212);
 }
-#list-table tr:nth-child(2n){
+#random-table tr:nth-child(2n){
   background-color: rgb(241, 241, 241);
 }
 
-.page-button {
-  width: 100px;
-  margin: 20px auto;
-  text-align: center;
-}
-
-#left-button, #right-button {
+#reset-button {
   background-color: rgb(126, 167, 255);
   color: white;
-  margin: 0 5px;
-  width: 30px;
-  height: 30px;
-  border-radius: 20px;
+  width: 100px;
+  height: 35px;
+  margin: 20px auto;
+  border-radius: 5px;
 }
 
-#left-button:active, #right-button:active{
+#reset-button:active{
   background-color: rgb(161, 161, 161);
 }

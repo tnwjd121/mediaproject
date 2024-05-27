@@ -1,0 +1,74 @@
+#search-input:focus {
+  outline: none;
+}
+
+#search-body{
+  border: 3px solid rgb(94, 143, 247);
+  border-radius: 20px;
+  width: 40rem;
+  padding: 10px;
+  margin: 20px auto;
+}
+
+#search-input{
+  width: 34rem;
+  font-size: large;
+}
+
+#search-button{
+  color: rgb(94, 143, 247);
+  background-color: white;
+  font-size: large;
+}
+
+#search {
+  color: rgb(94, 143, 247);
+  font-size: large;
+}
+
+#search-table {
+  width: 40rem;
+  text-align: center;
+  margin: 20px auto;
+}
+#search-title-media{
+  width: 16rem;
+}
+#search-pd{
+  width: 5rem;
+}
+#search-content{
+  width: 5rem;
+}
+#search-genre{
+  width: 9rem;
+}
+#search-rating{
+  width: 5rem;
+}
+
+#search-table th{
+  background-color:  rgb(126, 167, 255);
+  color: white;
+}
+
+#search-table, #search-table tr, #search-table td, #search-table th{
+  border-collapse: collapse;
+}
+
+#search-table td, #search-table th{
+  padding: 5px;
+}
+
+#search-table tr:nth-child(2n+1){
+  background-color: rgb(212, 212, 212);
+}
+#search-table tr:nth-child(2n){
+  background-color: rgb(241, 241, 241);
+}
+
+#genre-text{
+  text-align: center;
+  margin: 0px;
+  font-size: medium;
+}

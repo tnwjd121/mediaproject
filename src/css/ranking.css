@@ -1,62 +1,57 @@
-#body{
-  background-color: white;
-  margin: 20px auto;
-  width: 55rem;
-  height: 35rem;
-  border-radius: 20px;
-  border: 1px solid rgb(126, 167, 255);
-  padding: 20px;
-}
+/* body는 list에 있는 스타일 이용 */
 
-#list-body{
+#ranking-body{
   width: 50rem;
   margin: 0 auto;
 }
 
-#list-title{
+#ranking-title{
   color: rgb(126, 167, 255);
   text-align: center;
   margin-bottom: 10px;
 }
 
-#list-table {
-  width: 40rem;
+#ranking-table {
+  width: 45rem;
   text-align: center;
   margin: 10px auto;
 }
-#list-title-media{
+#ranking-num{
+  width: 5rem;
+}
+#ranking-title-media{
   width: 16rem;
 }
-#list-pd{
+#ranking-pd{
   width: 5rem;
 }
-#list-content{
+#ranking-content{
   width: 5rem;
 }
-#list-genre{
+#ranking-genre{
   width: 9rem;
 }
-#list-rating{
+#ranking-rating{
   width: 5rem;
 }
 
-#list-table th{
+#ranking-table th{
   background-color:  rgb(126, 167, 255);
   color: white;
 }
 
-#list-table, #list-table tr, #list-table td, #list-table th{
+#ranking-table, #ranking-table tr, #ranking-table td, #ranking-table th{
   border-collapse: collapse;
 }
 
-#list-table td, #list-table th{
+#ranking-table td, #ranking-table th{
   padding: 5px;
 }
 
-#list-table tr:nth-child(2n+1){
+#ranking-table tr:nth-child(2n+1){
   background-color: rgb(212, 212, 212);
 }
-#list-table tr:nth-child(2n){
+#ranking-table tr:nth-child(2n){
   background-color: rgb(241, 241, 241);
 }
 

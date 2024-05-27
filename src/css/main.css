@@ -4,7 +4,7 @@
 
 .background-image{
   background-image: url(../img/main-back.jpg);
-  height: 46rem;
+  height: 100vh;
   width: 100%;
   background-repeat: no-repeat;
   background-size: cover;

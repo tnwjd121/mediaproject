@@ -1,36 +1,42 @@
-import React, { useEffect, useState } from 'react'
-import '../css/list.css'
+import React, { useEffect, useState } from 'react';
+import '../css/list.css';
 import axios from 'axios';
+import { GrCaretPrevious,GrCaretNext } from "react-icons/gr";
+import { useNavigate } from 'react-router-dom';
 
 const API_URL = "http://localhost:5000";
 const PAGE_SIZE = 10;
 
-//페이지 안 맞음 확인 필요함
 export default function List() {
-
-  const [programs, setPrograms] = useState([]);
+  const [allPrograms, setAllPrograms] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
-  const [totalPages, setTotalPages] = useState(1);
+  const navigate = useNavigate();
 
-  useEffect(()=>{
-    async function fetchPrograms() {
+  useEffect(() => {
+    async function fetchAllPrograms() {
       try {
-        const response = await axios.get(`${API_URL}/programs?page=${currentPage}&limit=${PAGE_SIZE}`)
-        setPrograms(response.data)
-        setTotalPages(Math.ceil(response.data.totalCount / PAGE_SIZE))
-        console.log(response.data)
+        const response = await axios.get(`${API_URL}/programs`);
+        setAllPrograms(response.data);
       } catch (error) {
-        console.error('에러 발생:', error)
+        console.error('에러 발생:', error);
       }
     }
-    fetchPrograms();
-  }, [currentPage]);
+    fetchAllPrograms();
+  }, []);
 
-  const handleNextPage = () =>{
+  const totalPages = Math.ceil(allPrograms.length / PAGE_SIZE);
+  const currentPrograms = allPrograms.slice((currentPage - 1) * PAGE_SIZE, currentPage * PAGE_SIZE);
+
+  const handleNextPage = () => {
     setCurrentPage(prevPage => Math.min(prevPage + 1, totalPages));
   }
-  const handlePrevPage = () =>{
+
+  const handlePrevPage = () => {
     setCurrentPage(prevPage => Math.max(prevPage - 1, 1));
+  }
+
+  const handleDetailClick = (id) => {
+    navigate(`/Detail/${id}`);
   }
 
   return (
@@ -48,22 +54,22 @@ export default function List() {
             </tr>
           </thead>
           <tbody>
-          {programs.map(program => (
-            <tr key={program.id}>
-              <td id='list-title-media'>{program.title}</td>
-              <td id='list-pd'>{program.pd}</td>
-              <td id='list-content'>{program.content}</td>
-              <td id='list-genre'>{program.genre}</td>
-              <td id='list-rating'>{program.ratings}%</td>
-            </tr>
-          ))}
+            {currentPrograms.map(program => (
+              <tr key={program.id} onClick={() => handleDetailClick(program.id)}>
+                <td id='list-title-media'>{program.title}</td>
+                <td id='list-pd'>{program.pd}</td>
+                <td id='list-content'>{program.content}</td>
+                <td id='list-genre'>{program.genre}</td>
+                <td id='list-rating'>{program.ratings}%</td>
+              </tr>
+            ))}
           </tbody>
         </table>
-        <div>
-          <button id='left-button' onClick={handlePrevPage} disabled={currentPage === 1}>🎈</button>
-          <button id='right-button' onClick={handleNextPage} disabled = {currentPage === totalPages}>🎈</button>
+        <div className='page-button'>
+          <button id='left-button' onClick={handlePrevPage} disabled={currentPage === 1}><GrCaretPrevious /></button>
+          <button id='right-button' onClick={handleNextPage} disabled={currentPage === totalPages}><GrCaretNext /></button>
         </div>
       </div>
     </div>
-  )
+  );
 }
