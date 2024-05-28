@@ -24,6 +24,7 @@ export default function Todo() {
   /* 
   1. 수정시 modal
   2. checkbox 클릭시 밀줄 그어주기
+  3. 삭제 버튼도 이상함 
   */
 
   return (
