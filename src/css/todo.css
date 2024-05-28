@@ -1,0 +1,16 @@
+#todo-body{
+  width: 50rem;
+  margin: 0 auto;
+  text-align: center;
+}
+
+#modal{
+  background-color: rgb(126, 167, 255);
+  border: 1px solid gray;
+  width: 20rem;
+  height: 10rem;
+  position: absolute;
+  left: 19rem;
+  top: 15rem;
+  display: none;
+}
