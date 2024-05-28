@@ -5,7 +5,10 @@ export default function Todo() {
 
   const [todos, setTodos] =useState([]);
   const [inputValue,setInputValue] = useState('');
-  const [checked, setChecked] = useState([])
+  const [checkedItems, setCheckedItems] = useState({})
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [currentTodoIndex, setCurrentTodoIndex] = useState(null);
+  const [modalInputValue, setModalInputValue] = useState('');
 
   const handleAddClick = () => {
     if(inputValue.trim().length<=0){
@@ -21,11 +24,29 @@ export default function Todo() {
     newTodos.splice(index, 1)
     setTodos(newTodos)
   }
-  /* 
-  1. 수정시 modal
-  2. checkbox 클릭시 밀줄 그어주기
-  3. 삭제 버튼도 이상함 
-  */
+
+  const handleCheckboxChange = (index) => {
+    setCheckedItems(prevCheckedItems => ({
+      ...prevCheckedItems,
+      [index]: !prevCheckedItems[index]
+    }))
+  }
+  const handleEditClick = (index) => {
+    setCurrentTodoIndex(index);
+    setModalInputValue(todos[index]);
+    setIsModalOpen(true);
+  };
+
+  const handleModalSave = () => {
+    const newTodos = [...todos];
+    newTodos[currentTodoIndex] = modalInputValue;
+    setTodos(newTodos);
+    setIsModalOpen(false);
+  };
+
+  const handleModalClose = () => {
+    setIsModalOpen(false);
+  };
 
   return (
     <div id='body'>
@@ -35,18 +56,31 @@ export default function Todo() {
         <button id='add-todo-button' onClick={handleAddClick}>Add</button>
         <div id='todo-list'>
           {todos.map((todo, index) => (
-            <div key={index}>
-              <input type='checkbox' className='checkbox' />
+            <div key={index} style={{ textDecoration: checkedItems[index] ? 'line-through' : 'none' }}>
+              <input
+                type='checkbox'
+                className='checkbox'
+                checked={checkedItems[index] || false}
+                onChange={() => handleCheckboxChange(index)}
+              />
               <span>{todo}</span>
-              <button id='edit-button' >수정</button>
-              <button id='delete-button' onClick={handleDeleteClick}>삭제</button>
+              <button id='edit-button' onClick={() => handleEditClick(index)}>수정</button>
+              <button id='delete-button' onClick={() => handleDeleteClick(index)}>삭제</button>
             </div>
           ))}
         </div>
-        <div id='modal'>
+        <div
+          id="modal"
+          style={{ display: isModalOpen ? 'block' : 'none' }}
+        >
           <h3>텍스트 수정</h3>
-          <input type='text'/>
-          <button>수정완료</button>
+          <input
+            type="text"
+            value={modalInputValue}
+            onChange={e => setModalInputValue(e.target.value)}
+          />
+          <button onClick={handleModalSave}>수정완료</button>
+          <button onClick={handleModalClose}>닫기</button>
         </div>
       </div>
     </div>
