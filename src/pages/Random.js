@@ -1,12 +1,14 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios';
 import '../css/random.css'
+import { useNavigate } from 'react-router-dom';
 
 const API_URL = "http://localhost:5000"
 const NUM_PROGRAMS = 8;
 
 export default function Random() {
   const [randomPrograms, setRandomPrograms] = useState([]);
+  const navigate = useNavigate();
 
   useEffect(() => {
     fetchAllPrograms();
@@ -28,6 +30,10 @@ export default function Random() {
     return shuffled.slice(0, num)
   }
 
+  const handleDetailClick = (id) => {
+    navigate(`/Detail/${id}`)
+  }
+
   return (
     <div id='body'>
       <div id='random-body'>
@@ -45,7 +51,7 @@ export default function Random() {
           </thead>
           <tbody>
             {randomPrograms.map((program, index) => (
-              <tr key={program.id}>
+              <tr key={program.id} onClick={() => handleDetailClick(program.id)}>
                 <td id='list-title-media'>{program.title}</td>
                 <td id='list-pd'>{program.pd}</td>
                 <td id='list-content'>{program.content}</td>

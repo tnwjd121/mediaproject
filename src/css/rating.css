@@ -1,0 +1,35 @@
+#rating-body{
+  width: 50rem;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.rating-title{
+  color: rgb(126, 167, 255);
+  text-align: center;
+  margin: 10px;
+}
+
+.rating-table{
+  width: 20rem;
+  text-align: center;
+  margin: 20px auto;
+}
+
+.rating-table th{
+  background-color:  rgb(126, 167, 255);
+  color: white;
+}
+
+.rating-table, .rating-table tr, .rating-table td, .rating-table th{
+  border-collapse: collapse;
+}
+.rating-table td, .rating-table th{
+  padding: 5px;
+}
+.rating-table tr:nth-child(2n+1){
+  background-color: rgb(212, 212, 212);
+}
+.rating-table tr:nth-child(2n){
+  background-color: rgb(241, 241, 241);
+}

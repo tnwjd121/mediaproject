@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { FaSearch } from "react-icons/fa";
 import '../css/search.css'
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 const API_URL = "http://localhost:5000"
 

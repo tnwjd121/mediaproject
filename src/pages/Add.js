@@ -43,10 +43,12 @@ export default function Add() {
     try {
       const response = await axios.post(`${API_URL}/programs`, formData);
       console.log(response.data);
+      alert(`${response.data.title}등록되었습니다.`)
       inputs.forEach(input=> {
         input.value =''
       });
       textarea.value = ''
+      // 초기화 말고 상세 페이지로 가게 하기
       
     } catch (error) {
       console.error('에러 발생:',error)

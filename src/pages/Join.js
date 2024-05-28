@@ -1,10 +1,12 @@
 import React, { useState } from 'react'
 import '../css/join.css'
 import axios from 'axios';
+import { Navigate, useNavigate } from 'react-router-dom';
 
 const API_URL = "http://localhost:5000"
 
 export default function Join() {
+  const navigate = useNavigate()
 
   const[formData, setFormData] = useState({
     userid: '',
@@ -41,9 +43,8 @@ export default function Join() {
       // 폼 데이터 전송
       const response = await axios.post(`${API_URL}/users`, formData);
       console.log(response.data);
-      inputs.forEach(input=> {
-        input.value =''
-      });
+      alert(`${response.data.name}님 회원가입 되었습니다.`)
+      navigate('/Login')
     } catch (error) {
       console.error('에러 발생:',error);
     }

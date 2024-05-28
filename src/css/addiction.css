@@ -1,0 +1,47 @@
+#addiction-body{
+  width: 45rem;
+  margin: 0 auto;
+}
+#addiction-title{
+  color: rgb(126, 167, 255);
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+#question-body{
+  text-align: center;
+}
+
+.left-sort {
+  text-align: left;
+}
+
+#addiction-table {
+  margin: 0 auto;
+  border-width: 3px 0px;
+  border-color: rgb(231, 231, 231);
+  border-style: solid;
+  border-collapse: collapse;
+}
+
+#addiction-table td {
+  border-width: 3px 0px;
+  border-color: rgb(231, 231, 231);
+  border-style: solid;
+}
+
+#addiction-button {
+  width: 6rem;
+  height: 2rem;
+  background-color: rgb(126, 167, 255);
+  color: white;
+  border-radius: 20px;
+  margin: 20px auto;
+  text-align: center;
+  font-size: large;
+}
+
+#test-result{
+  margin: 15px 0;
+  font-size: larger;
+}

@@ -1,0 +1,16 @@
+#detail-body{
+  width: 50rem;
+  margin: 0 auto;
+}
+#detail-title{
+  color: rgb(126, 167, 255);
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+#detail-body p{
+  font-size: large;
+  width: 40rem;
+  margin: 0 auto;
+  padding: 8px 0px;
+}
