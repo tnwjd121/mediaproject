@@ -6,6 +6,7 @@ const API_URL = "http://localhost:5000"
 
 export default function Add() {
 
+  // 목서버에 전송할 데이터 폼 생성
   const[formData, setFormData] = useState({
     title:'',
     pd:'',
@@ -15,6 +16,7 @@ export default function Add() {
     summary : ''
   })
 
+  // 입력된 데이터를 데이터 폼에 넣기
   const handleChange = (e) => {
     const {id, value} = e.target;
     setFormData({
@@ -23,35 +25,41 @@ export default function Add() {
     })
   }
 
+  // 입력된 데이터 목서버로 전송
   const handleSubmit = async (e) => {
     const inputs = document.querySelectorAll("input")
     const textarea = document.querySelector("textarea")
-    e.preventDefault();
-    let isFormValid = true;
+    let isFormValue = true;
+    // input에 빈값이 있는지 확인, 빈값이면 false 반환
     inputs.forEach(input => {
       if(input.value ===''){
-        isFormValid = false;
+        isFormValue = false;
       }
     })
+    // textarea에 빈값이 있는지 확인, 빈값이면 false 반환
     if(textarea.value === ''){
-      isFormValid = false
+      isFormValue = false
     }
-    if(!isFormValid){
+    // 빈값일 경우 데이터 전송이 불가능하게 하고, alert창 표시
+    if(!isFormValue){
       alert("모든 정보 작성 부탁드립니다.")
       return
     }
     try {
+      // formData를 programs에 전송
       const response = await axios.post(`${API_URL}/programs`, formData);
-      console.log(response.data);
       alert(`${response.data.title}등록되었습니다.`)
-      inputs.forEach(input=> {
-        input.value =''
-      });
-      textarea.value = ''
-      // 초기화 말고 상세 페이지로 가게 하기
-      
+      // 데이터 초기화
+      setFormData({
+        title:'',
+        pd:'',
+        content:'드라마',
+        genre:'연애',
+        ratings: '',
+        summary : ''
+      })
     } catch (error) {
-      console.error('에러 발생:',error)
+      console.error('프로그램 등록 에러 발생:',error)
     }
   }
 

@@ -18,19 +18,19 @@ export default function Todo() {
       setInputValue('')
     }
   }
-
-  const handleDeleteClick = (index) => {
-    const newTodos = [...todos]
-    newTodos.splice(index, 1)
-    setTodos(newTodos)
-  }
-
+  
   const handleCheckboxChange = (index) => {
     setCheckedItems(prevCheckedItems => ({
       ...prevCheckedItems,
       [index]: !prevCheckedItems[index]
     }))
   }
+  const handleDeleteClick = (index) => {
+    const newTodos = [...todos]
+    newTodos.splice(index, 1)
+    setTodos(newTodos)
+  }
+
   const handleEditClick = (index) => {
     setCurrentTodoIndex(index);
     setModalInputValue(todos[index]);

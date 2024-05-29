@@ -21,6 +21,9 @@
   width: 3rem;
   height: 1.7rem;
 }
+#add-todo-button:active{
+  background-color: rgb(161, 161, 161); 
+}
 #todo-div{
   display: flex;
   flex-direction: row;
@@ -43,7 +46,9 @@
   border-radius: 5px;
 }
 
-
+#edit-button:active, #delete-button:active, #edit-complete-button:active, #cloese-button:active{
+  background-color: rgb(161, 161, 161); 
+}
 
 
 #modal{

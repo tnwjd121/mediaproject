@@ -1,13 +1,14 @@
 import React, { useState } from 'react'
 import '../css/join.css'
 import axios from 'axios';
-import { Navigate, useNavigate } from 'react-router-dom';
+import {useNavigate } from 'react-router-dom';
 
 const API_URL = "http://localhost:5000"
 
 export default function Join() {
   const navigate = useNavigate()
 
+  // 목서버에 전송할 데이터 폼 생성
   const[formData, setFormData] = useState({
     userid: '',
     password: '',
@@ -17,6 +18,7 @@ export default function Join() {
     birth:''
   });
 
+  // 입력된 데이터를 데이터 폼에 넣기
   const handleChange = (e) => {
     const {id, value} = e.target;
     setFormData({
@@ -25,9 +27,9 @@ export default function Join() {
     });
   };
 
+  // 데이터폼 목서버 users에 전송
   const handleSubmit = async (e) => {
     const inputs = document.querySelectorAll("input")
-    e.preventDefault();
     let isFormValid = true;
     inputs.forEach(input => {
         if(input.value ===''){
@@ -39,6 +41,7 @@ export default function Join() {
       alert("모든 정보 작성 부탁드립니다.")
       return
     }
+    // 중복된 아이디 있는지 검사
     const useridCheck = await axios.get(`${API_URL}/users?userid=${formData.userid}`)
     if(useridCheck.data.length> 0){
       alert("중복된 아이디이므로 다른 아이디를 입력 부탁드립니다.")
@@ -48,7 +51,6 @@ export default function Join() {
     try {
       // 폼 데이터 전송
       const response = await axios.post(`${API_URL}/users`, formData);
-      console.log(response.data);
       alert(`${response.data.name}님 회원가입 되었습니다.`)
       navigate('/Login')
     } catch (error) {
