@@ -39,6 +39,12 @@ export default function Join() {
       alert("모든 정보 작성 부탁드립니다.")
       return
     }
+    const useridCheck = await axios.get(`${API_URL}/users?userid=${formData.userid}`)
+    if(useridCheck.data.length> 0){
+      alert("중복된 아이디이므로 다른 아이디를 입력 부탁드립니다.")
+      return
+    }
+
     try {
       // 폼 데이터 전송
       const response = await axios.post(`${API_URL}/users`, formData);

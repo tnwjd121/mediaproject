@@ -51,21 +51,26 @@ export default function Todo() {
   return (
     <div id='body'>
       <div id='todo-body'>
-        <h1>오늘 할일</h1>
+        <h1 id='todo-title'>오늘 할일</h1>
         <input id='add-todo' value={inputValue} onChange={(e) => setInputValue(e.target.value)}/>
-        <button id='add-todo-button' onClick={handleAddClick}>Add</button>
+        <button id='add-todo-button' onClick={handleAddClick}>추가</button>
         <div id='todo-list'>
           {todos.map((todo, index) => (
-            <div key={index} style={{ textDecoration: checkedItems[index] ? 'line-through' : 'none' }}>
-              <input
-                type='checkbox'
-                className='checkbox'
-                checked={checkedItems[index] || false}
-                onChange={() => handleCheckboxChange(index)}
-              />
-              <span>{todo}</span>
-              <button id='edit-button' onClick={() => handleEditClick(index)}>수정</button>
-              <button id='delete-button' onClick={() => handleDeleteClick(index)}>삭제</button>
+            <div key={index} style={{ textDecoration: checkedItems[index] ? 'line-through' : 'none' }} id='todo-div'>
+              <div>
+                <input
+                  type='checkbox'
+                  id='checkbox-input'
+                  className='checkbox'
+                  checked={checkedItems[index] || false}
+                  onChange={() => handleCheckboxChange(index)}
+                />
+                <span id='checkbox-span'>{todo}</span>
+              </div>
+              <div>
+                <button id='edit-button' onClick={() => handleEditClick(index)}>수정</button>
+                <button id='delete-button' onClick={() => handleDeleteClick(index)}>삭제</button>
+              </div>
             </div>
           ))}
         </div>
@@ -73,14 +78,15 @@ export default function Todo() {
           id="modal"
           style={{ display: isModalOpen ? 'block' : 'none' }}
         >
-          <h3>텍스트 수정</h3>
+          <h3 id='modal-text'>텍스트 수정</h3>
           <input
             type="text"
             value={modalInputValue}
             onChange={e => setModalInputValue(e.target.value)}
+            id='modal-input'
           />
-          <button onClick={handleModalSave}>수정완료</button>
-          <button onClick={handleModalClose}>닫기</button>
+          <button onClick={handleModalSave} id='edit-complete-button'>수정완료</button>
+          <button onClick={handleModalClose} id='cloese-button'>닫기</button>
         </div>
       </div>
     </div>

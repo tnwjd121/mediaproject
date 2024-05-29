@@ -1,16 +1,79 @@
 #todo-body{
-  width: 50rem;
+  width: 25rem;
   margin: 0 auto;
   text-align: center;
 }
 
+#todo-title{
+  color: rgb(126, 167, 255);
+  margin-bottom: 10px;
+}
+#add-todo{
+  border: 2px solid gainsboro;
+  border-radius: 5px;
+  width: 20rem;
+}
+#add-todo-button{
+  border : 1px solid gainsboro;
+  background-color: rgb(126, 167, 255);
+  color: white;
+  border-radius: 5px;
+  width: 3rem;
+  height: 1.7rem;
+}
+#todo-div{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 0px 20px;
+}
+#checkbox-input{
+  line-height: normal;
+}
+#checkbox-span{
+  width: 15rem;
+  font-size: medium;
+  margin-left: 5px;
+}
+
+#edit-button, #delete-button {
+  background-color: rgb(126, 167, 255);
+  border : 1px solid gainsboro;
+  color: white;
+  border-radius: 5px;
+}
+
+
+
+
 #modal{
   background-color: rgb(126, 167, 255);
-  border: 1px solid gray;
+  border: 1px solid ghostwhite;
+  border-radius: 20px;
+  padding: 20px;
   width: 20rem;
-  height: 10rem;
-  position: absolute;
-  left: 44rem;
-  top: 20rem;
-  display: none;
+  height: 5rem;
+  position: fixed;
+  left: 50%;
+  top: 30%;
+  transform: translate(-50%, -50%);
+  /* display: none; */
 }
+
+#modal-text{
+  color: white;
+  font-size: larger;
+  margin-bottom: 10px;
+}
+
+#edit-complete-button, #cloese-button{
+  background-color: rgb(32, 100, 247);
+  border : 1px solid gainsboro;
+  color: white;
+  border-radius: 5px;
+}
+
+#modal-input{
+  border-radius: 3px;
+}
+
