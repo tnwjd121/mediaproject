@@ -12,29 +12,35 @@ export default function List() {
   const [currentPage, setCurrentPage] = useState(1);
   const navigate = useNavigate();
 
+  // 목서버 programs를 동기화
   useEffect(() => {
     async function fetchAllPrograms() {
       try {
         const response = await axios.get(`${API_URL}/programs`);
         setAllPrograms(response.data);
       } catch (error) {
-        console.error('에러 발생:', error);
+        console.error('프로그램 목록 에러 발생:', error);
       }
     }
     fetchAllPrograms();
   }, []);
 
+  //Math.ceil을 소수값이 있을때 값을 올려서 값이 소수점일때 페이지를 정수로 받을 수 있음
   const totalPages = Math.ceil(allPrograms.length / PAGE_SIZE);
+  // 현재 페이지일때 가져올 programs데이터 
   const currentPrograms = allPrograms.slice((currentPage - 1) * PAGE_SIZE, currentPage * PAGE_SIZE);
 
+  //다음 버튼을 클릭했을때 최소 마지막 페이지까지만 이동되도록
   const handleNextPage = () => {
-    setCurrentPage(prevPage => Math.min(prevPage + 1, totalPages));
+    setCurrentPage(nextPage => Math.min(nextPage + 1, totalPages));
   }
 
+  // 이전 버튼을 클릭했을때 최대 1페이지까지만 이동되도록
   const handlePrevPage = () => {
     setCurrentPage(prevPage => Math.max(prevPage - 1, 1));
   }
 
+  // 목록 클릭시 해당하는 프로그램에 상세페이지로 이동
   const handleDetailClick = (id) => {
     navigate(`/Detail/${id}`);
   }

@@ -14,6 +14,7 @@ export default function Random() {
     fetchAllPrograms();
   }, []);
 
+  // 새로고침을 누르면 계속 랜덤으로 변경되어야 해서 useEffect에 포함 X
   const fetchAllPrograms = async () => {
     try {
       const response = await axios.get(`${API_URL}/programs`);
@@ -21,15 +22,17 @@ export default function Random() {
       const selectedPrograms = getRandomPrograms(allPrograms, NUM_PROGRAMS);
       setRandomPrograms(selectedPrograms);
     } catch (error) {
-      console.error('에러 발생:', error);
+      console.error('랜덤 에러 발생:', error);
     }
   };
 
   const getRandomPrograms = (programs, num) => {
-    const shuffled = programs.sort(() => 0.5 - Math.random())
-    return shuffled.slice(0, num)
+    // 랜덤으로 가져오기
+    const random = programs.sort(() => Math.random() - 0.5)
+    return random.slice(0, num)
   }
 
+  // 목록 선택시 해당하는 상세페이지 이동
   const handleDetailClick = (id) => {
     navigate(`/Detail/${id}`)
   }

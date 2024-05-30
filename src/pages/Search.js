@@ -2,19 +2,23 @@ import React, { useState } from 'react'
 import { FaSearch } from "react-icons/fa";
 import '../css/search.css'
 import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
 
 const API_URL = "http://localhost:5000"
 
 export default function Search() {
+  // 검색 옵션
   const [searchOption, setSearchOption] = useState('title');
+  // 입력한 검색값
   const [searchInput, setSearchInput] = useState('');
+  // 검색 결과 값
   const [searchResults, setSearchResults] = useState([]);
 
+  // 원하는 검색 결과 출력
   const handleSearch = async () => {
     try {
       const response = await axios.get(`${API_URL}/programs`);
       const allPrograms = response.data;
+      // 해당하는 옵션에 검색한 결과만 나오게 하기
       const filteredPrograms = allPrograms.filter(program =>
         program[searchOption].toLowerCase().includes(searchInput.toLowerCase())
       );

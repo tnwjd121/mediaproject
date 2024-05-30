@@ -9,12 +9,13 @@ export default function Login() {
 
   const navigate = useNavigate();
 
-
+  // 데이터 폼 생성
   const[formData, setFormData] = useState({
     userid:'',
     password:''
   });
-
+  
+  //입력된 데이터 데이터 폼에 넣기
   const handleChange = (e) => {
     const {id, value} = e.target;
     setFormData({
@@ -23,14 +24,14 @@ export default function Login() {
     });
   }
 
+  // 목서버 users의 정보와 입력한 데이터가 일치하면 로그인 성공
   const handleSubmit = async (e) =>{
-    e.preventDefault();
     try {
       const response = await axios.get(`${API_URL}/users`)
       const users = response.data;
+      // 입력한 데이터와 users가 일치하는지 확인
       const user = users.find(user => user.userid === formData.userid && user.password === formData.password);
       if (user) {
-        console.log(user.name)
         alert(`${user.name}님 로그인 성공하였습니다.`);
         navigate('/')
       } else {

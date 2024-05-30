@@ -10,33 +10,45 @@ export default function Todo() {
   const [currentTodoIndex, setCurrentTodoIndex] = useState(null);
   const [modalInputValue, setModalInputValue] = useState('');
 
+  // 추가버튼 클릭
   const handleAddClick = () => {
+    // 내용 입력 없이 추가 버튼 클릭하면 alert창 표시
     if(inputValue.trim().length<=0){
       alert("오늘 할일을 입력해주십시오.")
     }else{
+      // 내용 입력했을 경우 totos에 저장
       setTodos(prevTodos => [...prevTodos, inputValue])
+      // 입력한 데이터 초기화
       setInputValue('')
     }
   }
   
+  // 체크박스 체크 시 해당 목록이 체크되었는지 안되었는지 확인을 위해 생성
   const handleCheckboxChange = (index) => {
     setCheckedItems(prevCheckedItems => ({
       ...prevCheckedItems,
       [index]: !prevCheckedItems[index]
     }))
   }
+
+  // 삭제 버튼 클릭 시 해당하는 목록 삭제
   const handleDeleteClick = (index) => {
     const newTodos = [...todos]
     newTodos.splice(index, 1)
     setTodos(newTodos)
   }
 
+  // 수정 버튼 클릭시 해당하는 목록에 대한 모달 창 열어줌
   const handleEditClick = (index) => {
+    // 해당하는 인덱스 번호
     setCurrentTodoIndex(index);
+    // 해당하는 인덱스 번호의 입력 값
     setModalInputValue(todos[index]);
+    // 모달창 열어줌
     setIsModalOpen(true);
   };
 
+  // 모달 창에 입력한 값 저장
   const handleModalSave = () => {
     const newTodos = [...todos];
     newTodos[currentTodoIndex] = modalInputValue;
@@ -44,6 +56,7 @@ export default function Todo() {
     setIsModalOpen(false);
   };
 
+  // 모달 창 닫기
   const handleModalClose = () => {
     setIsModalOpen(false);
   };

@@ -17,12 +17,14 @@ export default function Addiction() {
   })
   const testResult = document.querySelector("#test-result")
 
-
+  // 검사결과 클릭시 입력한 결과를 출력
   const handleClick = () => {
+    // 선택 안한 항목 있는지 검사
     const unAnswerd = Object.keys(answers).filter(question => answers[question]==="")
     if (unAnswerd.length > 0) {
       alert(`선택 안 된 문제가 있습니다 : ${unAnswerd.join(", ")}`)
     }else{
+      // "YES"를 선택한 횟수로 결과 출력
       const result = Object.keys(answers).map(question => answers[question] === "YES" ? 1 : 0)
       const count = result.reduce((acc, val) => acc + val, 0)
       if(count>7){

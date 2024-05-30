@@ -16,14 +16,18 @@ export default function Detail() {
         const response = await axios.get(`${API_URL}/programs/${id}`);
         setProgram(response.data);
       } catch (error) {
-        console.error('에러 발생:', error);
+        console.error('상세페이지 발생:', error);
       }
     }
     fetchProgram();
   }, [id]);
 
   if (!program) {
-    return <div>Loading...</div>;
+    return (
+      <div id='body'>
+          Loading...
+      </div>
+    )
   }
   return (
     <div id='body'>

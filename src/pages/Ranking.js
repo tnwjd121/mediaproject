@@ -16,7 +16,7 @@ export default function Ranking() {
         const response = await axios.get(`${API_URL}/programs`);
         setAllPrograms(response.data);
       } catch (error) {
-        console.error('에러 발생:', error);
+        console.error('랭킹 에러 발생:', error);
       }
     }
     fetchAllPrograms();
@@ -29,7 +29,7 @@ export default function Ranking() {
   const currentPrograms = sortedPrograms.slice((currentPage - 1) * PAGE_SIZE, currentPage * PAGE_SIZE);
 
   const handleNextPage = () => {
-    setCurrentPage(prevPage => Math.min(prevPage + 1, totalPages));
+    setCurrentPage(nextPage => Math.min(nextPage + 1, totalPages));
   }
 
   const handlePrevPage = () => {
