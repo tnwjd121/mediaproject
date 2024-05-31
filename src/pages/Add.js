@@ -48,7 +48,7 @@ export default function Add() {
     try {
       // formData를 programs에 전송
       const response = await axios.post(`${API_URL}/programs`, formData);
-      alert(`${response.data.title}등록되었습니다.`)
+      alert(`${response.data.title} 등록되었습니다.`)
       // 데이터 초기화
       setFormData({
         title:'',
