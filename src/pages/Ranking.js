@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import '../css/ranking.css';
 import axios from 'axios';
 import { GrCaretPrevious,GrCaretNext } from "react-icons/gr";
+import { useNavigate } from 'react-router-dom';
 
 const API_URL = "http://localhost:5000";
 const PAGE_SIZE = 10;
@@ -9,6 +10,7 @@ const PAGE_SIZE = 10;
 export default function Ranking() {
   const [allPrograms, setAllPrograms] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
+  const navigate = useNavigate();
 
   useEffect(() => {
     async function fetchAllPrograms() {
@@ -36,6 +38,13 @@ export default function Ranking() {
     setCurrentPage(prevPage => Math.max(prevPage - 1, 1));
   }
 
+  // 목록 클릭시 해당하는 프로그램에 상세페이지로 이동
+  const handleDetailClick = (id) => {
+    navigate(`/Detail/${id}`);
+  }
+
+  console.log(currentPrograms)
+
   return (
     <div id='body'>
       <div id='ranking-body'>
@@ -53,7 +62,7 @@ export default function Ranking() {
           </thead>
           <tbody>
             {currentPrograms.map((program, index) => (
-              <tr key={program.id}>
+              <tr key={program.id} onClick={()=>handleDetailClick(program.id)}>
                 <td>{(currentPage - 1) * PAGE_SIZE + index + 1}위</td>
                 <td id='ranking-title-media'>{program.title}</td>
                 <td id='ranking-pd'>{program.pd}</td>

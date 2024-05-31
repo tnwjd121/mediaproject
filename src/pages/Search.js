@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { FaSearch } from "react-icons/fa";
 import '../css/search.css'
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 const API_URL = "http://localhost:5000"
 
@@ -12,6 +13,7 @@ export default function Search() {
   const [searchInput, setSearchInput] = useState('');
   // 검색 결과 값
   const [searchResults, setSearchResults] = useState([]);
+  const navigate = useNavigate();
 
   // 원하는 검색 결과 출력
   const handleSearch = async () => {
@@ -27,6 +29,11 @@ export default function Search() {
       console.error('에러 발생:', error);
     }
   };
+
+    // 목록 클릭시 해당하는 프로그램에 상세페이지로 이동
+    const handleDetailClick = (id) => {
+      navigate(`/Detail/${id}`);
+    }
 
   return (
     <div id='body'>
@@ -58,7 +65,7 @@ export default function Search() {
           </thead>
           <tbody>
             {searchResults.map(program => (
-              <tr key={program.id}>
+              <tr key={program.id} onClick={()=>handleDetailClick(program.id)}>
                 <td id='search-title-media'>{program.title}</td>
                 <td id='search-pd'>{program.pd}</td>
                 <td id='search-content'>{program.content}</td>
